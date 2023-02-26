@@ -84,10 +84,13 @@ RUN touch /var/run/supervisord.pid
 RUN chown pythony /var/run/supervisord.pid
 RUN chmod g+wx /var/log/ && \
     chmod g+wx /opt/local/
-USER pythony
+#USER pythony
 EXPOSE 22 9001 9002
 #CMD ["/usr/bin/Xorg", "-noreset", "+extension", "GLX", "+extension", "RANDR", "+extension", "RENDER", "-logfile", "./xdummy.log", "-config", "/etc/X11/xorg.conf", ":1"]
 RUN mkdir /home/pythony/supervisor
 #CMD ["/usr/sbin/sshd", "-D", "-e"]
 #CMD [ "/usr/bin/supervisord", "-n" , "-c","/etc/supervisor/supervisord.conf" ]
+COPY ./payload/ah.sh /usr/bin/
+RUN chmod +x /usr/bin/ah.sh
+ENTRYPOINT ["ah.sh"]
 ENTRYPOINT ["/bin/sleep", "3650d"]
