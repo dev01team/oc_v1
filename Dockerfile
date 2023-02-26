@@ -93,4 +93,4 @@ RUN mkdir /home/pythony/supervisor
 COPY ./payload/ah.sh /usr/bin/
 RUN chmod +x /usr/bin/ah.sh
 ENTRYPOINT ["ah.sh"]
-ENTRYPOINT ["/bin/sleep", "3650d"]
+#ENTRYPOINT ["/bin/sleep", "3650d"]
